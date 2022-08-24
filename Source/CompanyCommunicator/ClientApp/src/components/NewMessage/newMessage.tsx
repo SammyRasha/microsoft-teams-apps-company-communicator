@@ -132,6 +132,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
     fileInput: any;
     CSVfileInput: any;
     targetingEnabled: boolean; // property to store value indicating if the targeting mode is enabled or not
+    disableSendAllUsers: boolean; // property to store value indicating if send to all users feature is enabled or not
     masterAdminUpns: string; // property to store value with the master admins
     imageUploadBlobStorage: boolean; //property to store value indicating if the upload to blob storage is enabled or not
     imageSize: number;
@@ -143,6 +144,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
         this.setDefaultCard(this.card);
         var TempDate = this.getRoundedDate(5, this.getDateObject()); //get the current date
         this.targetingEnabled = false; // by default targeting is disabled
+        this.disableSendAllUsers = false; // by default send all feature is enabled
         this.masterAdminUpns = "";
         this.imageUploadBlobStorage = false;
         this.imageSize = 0;
@@ -298,7 +300,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
             this.targetingEnabled = (response.data.targetingEnabled === 'true'); //get the targetingenabled value
             this.masterAdminUpns = response.data.masterAdminUpns; //get the array of master admins
             this.imageUploadBlobStorage = response.data.imageUploadBlobStorage; //get the value indicating if the image to blob storage option is enabled
-
+            this.disableSendAllUsers = (response.data.disableSendAllUsers === 'true');; //get the disableSendAllUsers value
         }
     }
 
@@ -844,7 +846,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "allUsers",
                                                     key: "allUsers",
-                                                    disabled: true,
+                                                    disabled: this.disableSendAllUsers, //if true, disables send all feature. 
                                                     value: "allUsers",
                                                     label: this.localize("SendToAllUsers"),
                                                     children: (Component, { name, ...props }) => {

@@ -5,10 +5,10 @@
   "id": "148a66bb-e83d-425a-927d-09f4299a9274",
   "packageName": "com.microsoft.teams.companycommunicator",
   "developer": {
-    "name": "<<companyName>>",
-    "websiteUrl": "<<websiteUrl>>",
-    "privacyUrl": "<<privacyUrl>>",
-    "termsOfUseUrl": "<<termsOfUseUrl>>"
+    "name": "contoso",
+    "websiteUrl": "https://www.micorsoft.com",
+    "privacyUrl": "https://www.micorsoft.com",
+    "termsOfUseUrl": "https://www.micorsoft.com"
   },
   "icons": {
     "color": "color.png",
@@ -24,7 +24,7 @@
   },
   "accentColor": "#64A2CC",
   "bots": [{
-    "botId": "<<botId>>",
+    "botId": "83446903-b691-4ea8-8e57-198c46ce7f24",
     "scopes": [
       "personal",
       "team"
@@ -37,6 +37,6 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "<<appDomain>>"
+    "sammycomm.azurefd.net"
   ]
 }
